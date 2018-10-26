@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2018 by anonymous (http://jsbin.com/qakavaxita/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Clock</title>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+<style id="jsbin-css">
+ * { margin: 0; padding: 0; }
+
+html, body {
+  height: 100%;
+  
+}
+
+#clock {
+  text-align: center;
+  position: relative;
+  bottom: -50%;
+  font-family: 'Lato', sans-serif;
+  font-size:70px;
+  margin-top:-35px;
+  color:white
+}
+</style>
+</head>
+<body>
+<div id="clock"></div>
+ 
+<script id="jsbin-javascript">
+function colorClock(){
+  var date = new Date();
+  var hours = date.getHours();
+  var minutes = date.getMinutes();
+  var seconds = date.getSeconds();
+
+  if (hours <= 9) {
+    hours = '0' + hours;
+  }
+  if (minutes <= 9) {
+    minutes = '0' + minutes;
+  }
+  if (seconds <= 9) {
+    seconds = '0' + seconds;
+  }
+
+  var clockFace = hours + ':' + minutes + ':' + seconds;
+  var red = "#f4040c";
+  var green = "#4cd313";
+  var firebrick = "#b22222";
+  var yellow = "#ffff00";
+  var orange = "#ffa500";
+  var darkorchid ="#9932cc";
+  var darkviolet = "#9400d3";
+  var hexColor = '#ffa500'
+  
+ if(seconds <= 10 ){
+   hexColor = "#f4040c";
+ }
+  
+ else if(seconds <= 20 ){
+   hexColor = "#4cd313";
+ } 
+
+ else if(seconds <= 30 ){
+   hexColor = "#b22222";
+ } 
+  
+ else if(seconds <= 40 ){
+   hexColor = "#ffff00";
+ } 
+  
+   else if(seconds <= 50 ){
+   hexColor = "#ffa500";
+ } 
+  
+  
+  else if(seconds <= 60 ){
+   hexColor = "#9932cc";
+ } 
+  document.getElementById('clock').innerHTML = clockFace;
+document.body.style.background = hexColor;
+setTimeout(function() {
+  colorClock();
+}, 1000);
+}
+
+
+colorClock();
+
+console.log(colorClock);
+
+
+
+
+
+</script>
+</body>
+</html>
